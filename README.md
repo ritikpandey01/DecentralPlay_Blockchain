@@ -258,10 +258,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Having issues? We're here to help:
 
-- 📧 Email: support@snakeweb3game.com
-- 💬 Discord: [Join our community](https://discord.gg/snakeweb3)
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/snake-web3-game/issues)
-- 📖 Documentation: [Full Docs](https://docs.snakeweb3game.com)
+- 📧 Email: ritikpandey.4161@gmail.com
+- 🐛 Issues: [GitHub Issues](https://github.com/ritikpandey01/snake-web3-game/issues)
+
 
 ## 🚀 Roadmap
 
