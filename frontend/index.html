@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐍 Snake Game Web3 | Shardeum</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>🐍 Snake Web3</h1>
+                <p>Powered by Shardeum</p>
+            </div>
+            <div class="wallet-section">
+                <button id="connectWallet" class="btn btn-primary">Connect Wallet</button>
+                <div id="walletInfo" class="wallet-info hidden">
+                    <span id="walletAddress"></span>
+                    <button id="disconnectWallet" class="btn btn-secondary">Disconnect</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Game Stats -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-label">Current Score</span>
+                <span id="currentScore" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">High Score</span>
+                <span id="highScore" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Games Played</span>
+                <span id="gamesPlayed" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">NFTs Earned</span>
+                <span id="nftsEarned" class="stat-value">0</span>
+            </div>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="game-section">
+            <div class="game-container">
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+                <div id="gameOverlay" class="game-overlay">
+                    <div class="game-message">
+                        <h2>🐍 Snake Web3 Game</h2>
+                        <p>Connect your wallet and press SPACE to start!</p>
+                        <div class="controls-info">
+                            <p>🎮 Use arrow keys or WASD to control</p>
+                            <p>📱 Swipe on mobile devices</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="gameOverScreen" class="game-over-screen hidden">
+                    <div class="game-over-content">
+                        <h2>Game Over! 💀</h2>
+                        <p>Final Score: <span id="finalScore">0</span></p>
+                        <div class="game-over-actions">
+                            <button id="submitScore" class="btn btn-success">Submit to Blockchain</button>
+                            <button id="playAgain" class="btn btn-primary">Play Again</button>
+                        </div>
+                        <div id="submitStatus" class="submit-status"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Controls -->
+            <div class="game-controls">
+                <button id="startGame" class="btn btn-success">Start Game</button>
+                <button id="pauseGame" class="btn btn-warning">Pause</button>
+                <button id="claimReward" class="btn btn-reward">🎁 Claim Rewards</button>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="leaderboard-section">
+            <h3>🏆 Global Leaderboard</h3>
+            <div class="leaderboard">
+                <div class="leaderboard-header">
+                    <span>Rank</span>
+                    <span>Player</span>
+                    <span>Score</span>
+                    <span>Date</span>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list">
+                    <div class="leaderboard-item">
+                        <span>-</span>
+                        <span>No players yet</span>
+                        <span>-</span>
+                        <span>-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player History -->
+        <div class="history-section">
+            <h3>📊 Your Game History</h3>
+            <div id="playerHistory" class="history-list">
+                <p class="no-data">Connect wallet to view history</p>
+            </div>
+        </div>
+
+        <!-- Settings -->
+        <div class="settings-section">
+            <button id="darkModeToggle" class="btn btn-secondary">🌙 Dark Mode</button>
+            <button id="refreshData" class="btn btn-secondary">🔄 Refresh Data</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built for Shardeum Hackathon | Web3 Snake Game</p>
+            <div class="footer-links">
+                <a href="https://explorer-unstable.shardeum.org/" target="_blank">Block Explorer</a>
+                <a href="https://shardeum.org/" target="_blank">Shardeum</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p id="loadingText">Processing transaction...</p>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification" class="notification hidden">
+        <span id="notificationText"></span>
+        <button id="closeNotification" class="close-btn">&times;</button>
+    </div>
+
+    <!-- Mobile Touch Controls -->
+    <div id="mobileControls" class="mobile-controls hidden">
+        <div class="mobile-control-row">
+            <button class="mobile-btn" data-direction="up">↑</button>
+        </div>
+        <div class="mobile-control-row">
+            <button class="mobile-btn" data-direction="left">←</button>
+            <button class="mobile-btn" data-direction="down">↓</button>
+            <button class="mobile-btn" data-direction="right">→</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.1/ethers.min.js"></script>
+    <script src="web3.js"></script>
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
